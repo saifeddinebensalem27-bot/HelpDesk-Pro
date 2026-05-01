@@ -1,66 +1,123 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+#  HelpDesk Pro
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> This is a **university mini project** built to satisfy academic requirements.
+> It is not a production-ready application. The goal was to respect the given
+> specifications and demonstrate core Laravel concepts — not to build a
+> complete professional system.
 
-## About Laravel
+A web-based IT support ticket management system built with **Laravel 10**,
+**Bootstrap 5**, and **MySQL** — developed as part of a university course
+in **Computer Systems Development**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Project Context
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was built under a specific set of rules and requirements given
+by the university. Every decision made — from the database structure to the
+pages and features — was guided by those requirements.
 
-## Learning Laravel
+I am aware this project can be improved in many ways:
+- Role-based access control
+- Ticket assignment workflow
+- Search and filtering
+- Notifications
+- API support
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+These were intentionally left out because they were outside the scope of
+the requirements. Given more time and freedom, the architecture would be
+significantly different and more complete.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Features (as required)
 
-## Laravel Sponsors
+- Submit and track support tickets
+- Priority levels: Critical, High, Medium, Low
+- Status tracking: Open, In Progress, Resolved, Closed
+- Ticket assignment to agents
+- User and Agent management
+- Category management
+- Profile editing with optional password update
+- Clean sidebar navigation
+- Responsive UI with Bootstrap 5
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+## Tech Stack
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+| Layer        | Technology              |
+|--------------|-------------------------|
+| Backend      | Laravel 10 (PHP)        |
+| Frontend     | Bootstrap 5 (via CDN)   |
+| Database     | MySQL                   |
+| Auth         | Custom (no Breeze)      |
+| Templating   | Blade                   |
+| Architecture | MVC                     |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Database Structure
 
-## Code of Conduct
+- `users` — stores admins, agents, and users
+- `categories` — ticket categories (Network, Hardware, Software)
+- `tickets` — support tickets with status, priority, and assignment
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/helpdesk-pro.git
+
+# 2. Enter the project
+cd helpdesk-pro
+
+# 3. Install dependencies
+composer install
+
+# 4. Copy environment file
+cp .env.example .env
+
+# 5. Generate app key
+php artisan key:generate
+
+# 6. Configure your database in .env
+DB_DATABASE=helpdesk_pro
+DB_USERNAME=root
+DB_PASSWORD=your_password
+
+# 7. Run migrations and seed
+php artisan migrate --seed
+
+# 8. Start the server
+php artisan serve
+```
+
+---
+
+## Default Login
+
+| Email               | Password | Role  |
+|---------------------|----------|-------|
+| admin@helpdesk.com  | password | Admin |
+| agent1@helpdesk.com | password | Agent |
+| john@helpdesk.com   | password | User  |
+
+---
+
+## Note
+
+This project represents what I was able to build within the constraints
+of a university assignment. It follows the MVC pattern, applies Laravel
+best practices where possible, and delivers all required features.
+
+It is shared publicly to document the learning journey — not as a
+reference for production use.
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open source and available under the [MIT License](LICENSE).
